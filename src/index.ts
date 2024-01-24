@@ -1,3 +1,4 @@
-import animate from "../demo/rotate-cube";
+import animate from "./demo/text";
+import "./style/main.scss";
 
 animate();
