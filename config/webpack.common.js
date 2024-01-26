@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.resolve(__dirname, "../src/index.ts"),
+  entry: path.resolve(__dirname, "../src/index.tsx"),
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
@@ -15,7 +15,10 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: [".ts", ".js", ".tsx", ".scss"],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -31,18 +34,20 @@ module.exports = {
         ],
       },
       {
-        test: /\.ts$/,
+        test: /\.(tsx?)$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/i,
         use: [
-          // 将 JS 字符串生成为 style 节点
           "style-loader",
-          // 将 CSS 转化成 CommonJS 模块
-          "css-loader",
-          // 将 Sass 编译成 CSS
+          {
+            loader: "css-loader",
+            options: {
+              modules: true, // 启用 CSS Modules
+            },
+          },
           "sass-loader",
         ],
       },

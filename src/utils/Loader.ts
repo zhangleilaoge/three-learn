@@ -31,7 +31,6 @@ class ImgLoader extends FileLoader {
 
   load(_resource: IResource) {
     this.toLoad += 1;
-    // this.emit(EventNameEnum.LoadStart, {});
 
     const image = new Image();
 
@@ -51,8 +50,6 @@ class ImgLoader extends FileLoader {
     this.resource[_resource.name] = data;
 
     this.emit(EventNameEnum.LoadEnd, {
-      loaded: this.loaded,
-      toLoad: this.toLoad,
       name: _resource.name,
       data: data,
     });
@@ -71,6 +68,9 @@ export class Loader extends EventEmitter {
     this.loaders.forEach((loader) => {
       loader.on(EventNameEnum.LoadEnd, ({ name, data }) => {
         this.resource[name] = data;
+        if (this.toLoad === 0) {
+          this.emit(EventNameEnum.LoadEnd, {});
+        }
       });
     });
   }

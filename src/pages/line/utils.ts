@@ -1,7 +1,10 @@
 import * as THREE from "three";
 
 const createRenderer = () => {
-  const renderer = new THREE.WebGLRenderer();
+  const renderer = new THREE.WebGLRenderer({
+    canvas: document.querySelector(".js-canvas"),
+    alpha: true,
+  });
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 

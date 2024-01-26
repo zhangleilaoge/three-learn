@@ -1,14 +1,20 @@
 import * as THREE from "three";
-import { RESOURCES, ResourceNameEnum } from "./constants/resource";
-import { Loader } from "../../utils/Loader";
+import { RESOURCES, ResourceNameEnum } from "../constants/resource";
+import { Loader } from "../../../utils/Loader";
+import Timer from "../../../utils/Timer";
+import s from "../style.m.scss";
+import { EventNameEnum } from "../../../types/file";
 
-class Application {
+export class Application {
+  timer: Timer;
   camera: THREE.PerspectiveCamera;
   scene: THREE.Scene;
   renderer: THREE.WebGLRenderer;
   loader: Loader;
 
   constructor() {
+    this.timer = new Timer();
+
     this.setCamera();
     this.setScene();
     this.setRenderer();
@@ -31,9 +37,13 @@ class Application {
   }
 
   setRenderer() {
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({
+      canvas: document.getElementsByClassName(s["jsCanvas"])[0],
+      alpha: true,
+    });
+    renderer.setClearColor(0x000000, 1);
+    renderer.setPixelRatio(2);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
 
     this.renderer = renderer;
   }
@@ -69,11 +79,8 @@ class Application {
   }
 
   start() {}
+
+  stop() {}
 }
 
-const animate = () => {
-  const app = new Application();
-  app.start();
-};
-
-export default animate;
+export default Application;

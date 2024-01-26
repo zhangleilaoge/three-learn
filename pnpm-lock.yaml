@@ -3,10 +3,14 @@ lockfileVersion: 5.3
 specifiers:
   '@types/three': ^0.137.0
   css-loader: ^6.9.1
+  css-modules-typescript-loader: ^4.0.1
   eslint: ^8.56.0
   file-loader: ^6.2.0
   html-webpack-plugin: ^5.6.0
   prettier: ^3.2.4
+  react: ^18.2.0
+  react-dom: ^18.2.0
+  react-router-dom: ^6.21.3
   sass: ^1.70.0
   sass-loader: ^14.0.0
   style-loader: ^3.3.4
@@ -19,11 +23,15 @@ specifiers:
   webpack-merge: ^5.10.0
 
 dependencies:
+  react: 18.2.0
+  react-dom: 18.2.0_react@18.2.0
+  react-router-dom: 6.21.3_react-dom@18.2.0+react@18.2.0
   three: registry.npmmirror.com/three/0.160.0
 
 devDependencies:
   '@types/three': 0.137.0
   css-loader: 6.9.1_webpack@5.89.0
+  css-modules-typescript-loader: 4.0.1
   eslint: 8.56.0
   file-loader: 6.2.0_webpack@5.89.0
   html-webpack-plugin: registry.npmmirror.com/html-webpack-plugin/5.6.0_webpack@5.89.0
@@ -122,6 +130,11 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.16.0
     dev: true
+
+  /@remix-run/router/1.14.2:
+    resolution: {integrity: sha1-TVj1mQjZGXujF5MQB38lyI5J7Rc=, tarball: '@remix-run/router/download/@remix-run/router-1.14.2.tgz'}
+    engines: {node: '>=14.0.0'}
+    dev: false
 
   /@types/json-schema/7.0.15:
     resolution: {integrity: sha1-WWoXRyM2lNUPatinhp/Lb1bPWEE=, tarball: '@types/json-schema/download/@types/json-schema-7.0.15.tgz'}
@@ -284,6 +297,13 @@ packages:
       postcss-value-parser: 4.2.0
       semver: 7.5.4
       webpack: registry.npmmirror.com/webpack/5.89.0_webpack-cli@5.1.4
+    dev: true
+
+  /css-modules-typescript-loader/4.0.1:
+    resolution: {integrity: sha1-C4GM9kf+/Y+fs9RGk3TmmrHnJ0I=, tarball: css-modules-typescript-loader/download/css-modules-typescript-loader-4.0.1.tgz}
+    dependencies:
+      line-diff: 2.1.1
+      loader-utils: 1.4.2
     dev: true
 
   /cssesc/3.0.0:
@@ -622,6 +642,10 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
     dev: true
 
+  /js-tokens/4.0.0:
+    resolution: {integrity: sha1-GSA/tZmR35jjoocFDUZHzerzJJk=, tarball: js-tokens/download/js-tokens-4.0.0.tgz}
+    dev: false
+
   /js-yaml/4.1.0:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
@@ -641,6 +665,13 @@ packages:
     resolution: {integrity: sha512-Bdboy+l7tA3OGW6FjyFHWkP5LuByj1Tk33Ljyq0axyzdk9//JSi2u3fP1QSmd1KNwq6VOKYGlAu87CisVir6Pw==}
     dev: true
 
+  /json5/1.0.2:
+    resolution: {integrity: sha1-Y9mNYPIbMTt3xNbaGL+mnYDh1ZM=, tarball: json5/download/json5-1.0.2.tgz}
+    hasBin: true
+    dependencies:
+      minimist: 1.2.8
+    dev: true
+
   /json5/2.2.3:
     resolution: {integrity: sha1-eM1vGhm9wStz21rQxh79ZsHikoM=, tarball: json5/download/json5-2.2.3.tgz}
     engines: {node: '>=6'}
@@ -653,12 +684,31 @@ packages:
       json-buffer: 3.0.1
     dev: true
 
+  /levdist/1.0.0:
+    resolution: {integrity: sha1-kdejBElk8szEIaBHfKyCf+dcVxg=, tarball: levdist/download/levdist-1.0.0.tgz}
+    dev: true
+
   /levn/0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
+    dev: true
+
+  /line-diff/2.1.1:
+    resolution: {integrity: sha1-o4l5m5MTdaOx52SWStCws85g1vY=, tarball: line-diff/download/line-diff-2.1.1.tgz}
+    dependencies:
+      levdist: 1.0.0
+    dev: true
+
+  /loader-utils/1.4.2:
+    resolution: {integrity: sha1-KalX86Y5c4g+toTxD/09FR/sAaM=, tarball: loader-utils/download/loader-utils-1.4.2.tgz}
+    engines: {node: '>=4.0.0'}
+    dependencies:
+      big.js: 5.2.2
+      emojis-list: 3.0.0
+      json5: 1.0.2
     dev: true
 
   /loader-utils/2.0.4:
@@ -681,6 +731,13 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
+  /loose-envify/1.4.0:
+    resolution: {integrity: sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=, tarball: loose-envify/download/loose-envify-1.4.0.tgz}
+    hasBin: true
+    dependencies:
+      js-tokens: 4.0.0
+    dev: false
+
   /lru-cache/6.0.0:
     resolution: {integrity: sha1-bW/mVw69lqr5D8rR2vo7JWbbOpQ=, tarball: lru-cache/download/lru-cache-6.0.0.tgz}
     engines: {node: '>=10'}
@@ -700,6 +757,10 @@ packages:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
     dependencies:
       brace-expansion: 1.1.11
+    dev: true
+
+  /minimist/1.2.8:
+    resolution: {integrity: sha1-waRk52kzAuCCoHXO4MBXdBrEdyw=, tarball: minimist/download/minimist-1.2.8.tgz}
     dev: true
 
   /ms/2.1.2:
@@ -870,6 +931,46 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
+  /react-dom/18.2.0_react@18.2.0:
+    resolution: {integrity: sha1-IqrzhwjbJnTtmtoiTKSqcI2CHj0=, tarball: react-dom/download/react-dom-18.2.0.tgz}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      loose-envify: 1.4.0
+      react: 18.2.0
+      scheduler: 0.23.0
+    dev: false
+
+  /react-router-dom/6.21.3_react-dom@18.2.0+react@18.2.0:
+    resolution: {integrity: sha1-7zp5VqNpnHuCwh/LPbxjwxPtjF0=, tarball: react-router-dom/download/react-router-dom-6.21.3.tgz}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.14.2
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      react-router: 6.21.3_react@18.2.0
+    dev: false
+
+  /react-router/6.21.3_react@18.2.0:
+    resolution: {integrity: sha1-gIbOqSLCv+u7ScZZSWdBjx8WfXA=, tarball: react-router/download/react-router-6.21.3.tgz}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      '@remix-run/router': 1.14.2
+      react: 18.2.0
+    dev: false
+
+  /react/18.2.0:
+    resolution: {integrity: sha1-VVvZhZKIMlX6AN4U8RUakXtdd9U=, tarball: react/download/react-18.2.0.tgz}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
+
   /readdirp/3.6.0:
     resolution: {integrity: sha1-dKNwvYVxFuJFspzJc0DNQxoCpsc=, tarball: readdirp/download/readdirp-3.6.0.tgz}
     engines: {node: '>=8.10.0'}
@@ -930,6 +1031,12 @@ packages:
       immutable: 4.3.4
       source-map-js: 1.0.2
     dev: true
+
+  /scheduler/0.23.0:
+    resolution: {integrity: sha1-uoBBr8PTDrIGpIe2s4QALk5h/f4=, tarball: scheduler/download/scheduler-0.23.0.tgz}
+    dependencies:
+      loose-envify: 1.4.0
+    dev: false
 
   /schema-utils/3.3.0:
     resolution: {integrity: sha1-9QqIh3w8AWUqFbYirp6Xld96YP4=, tarball: schema-utils/download/schema-utils-3.3.0.tgz}
