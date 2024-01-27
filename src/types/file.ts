@@ -3,8 +3,3 @@ export interface IResource {
   source: any;
   type?: string;
 }
-
-export enum EventNameEnum {
-  LoadStart = "loadStart",
-  LoadEnd = "loadEnd",
-}

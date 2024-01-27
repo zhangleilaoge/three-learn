@@ -5,12 +5,20 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./config/webpack.dev.js",
-    "build": "webpack --config ./config/webpack.prod.js"
+    "build": "webpack --config ./config/webpack.prod.js",
+    "precommit": "npm run lint:staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit"
+    }
   },
   "author": "zhanglei_zl",
   "license": "ISC",
   "devDependencies": {
     "@types/three": "^0.137.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "@typescript-eslint/parser": "^6.19.1",
     "css-loader": "^6.9.1",
     "eslint": "^8.56.0",
     "file-loader": "^6.2.0",
@@ -31,5 +39,10 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
     "three": "^0.160.0"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint"
+    ]
   }
 }

@@ -1,6 +1,18 @@
 import { EventEmitter } from "./EventEmitter";
+import { TimeEventEnum } from "../constants/event";
 
-export default class Timer extends EventEmitter {
+export type EventName = TimeEventEnum.Tick;
+
+export type EventDataMap = {
+  [TimeEventEnum.Tick]: {};
+};
+
+interface Timer {
+  emit: <T extends EventName>(eventType: EventName, eventData: EventDataMap[T]) => void;
+  on: (eventType: EventName, callback) => void;
+}
+
+class Timer extends EventEmitter {
   start = 0;
   current = 0;
   ticker: number;
@@ -16,10 +28,12 @@ export default class Timer extends EventEmitter {
 
     const current = Date.now();
     this.current = current;
-    this.emit("tick", {});
+    this.emit(TimeEventEnum.Tick, {});
   }
 
   stop() {
     window.cancelAnimationFrame(this.ticker);
   }
 }
+
+export default Timer;

@@ -4,15 +4,17 @@ module.exports = {
     node: true,
     browser: true,
   },
-  extends: ["eslint:recommended", "plugin:prettier/recommended"],
+  parser: "@typescript-eslint/parser",
+  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   parserOptions: {
     ecmaVersion: 2018,
-    parser: require.resolve("babel-eslint"),
     sourceType: "module",
   },
-  plugins: [],
+  plugins: ["@typescript-eslint"],
   ignorePatterns: [".prettierrc.js", ".stylelintrc.js"],
   rules: {
-    semi: true,
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/no-unsafe-declaration-merging": "off",
   },
-}
+};
