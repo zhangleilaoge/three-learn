@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./config/webpack.dev.js",
     "build": "webpack --config ./config/webpack.prod.js",
-    "precommit": "npm run lint:staged"
+    "lint:staged": "lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run precommit"
+      "pre-commit": "npm run lint:staged"
     }
   },
   "author": "zhanglei_zl",
@@ -35,6 +35,8 @@
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "husky": "^9.0.6",
+    "lint-staged": "^15.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
